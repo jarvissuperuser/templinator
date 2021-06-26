@@ -87,7 +87,7 @@ const CoreBase = Base => class extends Base {
                         + _tokens()[0].length,
                         item.innerText.indexOf(_tokens()[1])
                     );
-                    if (this.hasOwnProperty('model') && !!this[`model`][prop]) {
+                    if (!!this.model && !!this.model[prop]) {
                         item.innerText = item
                             .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[`model`][prop]);
                     }else if (!!this[prop]){

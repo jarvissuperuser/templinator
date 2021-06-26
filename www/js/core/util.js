@@ -32,3 +32,9 @@ export const uuid = () => {
         return v.toString(16);
     });
 }
+
+export const currencyFormatter = (amount,locale = 'en-ZA', currency = 'ZAR') => {
+    const format = new Intl.NumberFormat(locale,
+        {style: 'currency', currency: currency})
+    return format.format(amount)
+}

@@ -1,5 +1,5 @@
 import {addEl} from '../abstraction.js';
-import {ImageCanvas} from '../../shared";
+// import {ImageCanvas} from '../../shared/index.js';
 import {ModelBase, modelMixIn} from './model-base.js';
 
 
@@ -31,7 +31,7 @@ export const modalMixIn = Base => class extends Base {
     loadTargetElements() {
         this.modal = this.getElements('.w3-modal')[0];
         this.canvasContain = this.getElements('.canvas')[0];
-        this.imageCanvas = addEl(ImageCanvas.is);
+        // this.imageCanvas = addEl(ImageCanvas.is);
         this.modalTitleElement = this.getElements('span.modalTitle')[0];
         this.close = this.getElements('.close')[0];
         this.button = this.getElements('button.add')[0];

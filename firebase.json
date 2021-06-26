@@ -1,0 +1,46 @@
+{
+  "emulators": {
+    "auth": {
+      "port": 8510
+    },
+    "functions": {
+      "port": 8530
+    },
+    "firestore": {
+      "port": 8520
+    },
+    "hosting": {
+      "port": 8550
+    },
+    "pubsub": {
+      "port": 8540
+    },
+    "storage": {
+      "port": 8560
+    },
+    "ui": {
+      "enabled": false
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "www",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

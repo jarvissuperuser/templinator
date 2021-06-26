@@ -27,9 +27,18 @@ export {
     delay,
     log,
     hideSlides,
-    sliderAnimation
+    sliderAnimation,
+    currencyFormatter
  } from './util.js';
  export {
    PageView
  } from './mix-ins/page-view.js'
+export {
+     ModalBase,
+    modalMixIn
+ } from "./mix-ins/modal-base.js";
+export {
+    modelMixIn
+} from "./mix-ins/model-base.js";
+
 export {image} from './image.js'
