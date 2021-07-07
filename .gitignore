@@ -68,5 +68,5 @@ node_modules/
 #build dir
 platforms
 .data/
-./plugins
-./.idea
+plugins
+.idea
