@@ -4,6 +4,7 @@ export {
     store,
     hash,
     addEl,
+    addElSVG,
     Core,
     DOMElement
 } from './core.js';

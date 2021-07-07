@@ -425,6 +425,15 @@ button.w3-animate-fade-in {
     scroll-behavior: smooth;
     /*scroll-padding: 100px 0 0;*/
 }
+.pg-container-h {
+    overflow-y: auto;
+    scroll-snap-type: x mandatory;
+    grid-auto-flow: column;
+    overscroll-behavior-x: contain;
+    /*scroll-snap-points-y: repeat(100vh);*/
+    scroll-behavior: smooth;
+    /*scroll-padding: 100px 0 0;*/
+}
 
 .pg-wrapper {
     display: grid;
@@ -436,6 +445,11 @@ button.w3-animate-fade-in {
 .pg-page {
     scroll-snap-align: start none;
 }
+
+.pg-page-h {
+    scroll-snap-align: center;
+}
+
 
 .content, .content-team {
     grid-row-start: 2;

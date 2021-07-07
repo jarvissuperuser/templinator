@@ -2,11 +2,10 @@ import {addEl, DOMElement, modelMixIn} from '../core/index.js';
 import {TableModel, TableBody} from "../shared/index.js";
 
 /**
- * @class InvoicePage
+ *
  * @extends DOMElement
- * @extends modelMixin
+ * @extends modelMixIn
  * @property {InvoiceTable} table
- * @method interpolate
  * */
 export class InvoicePage extends modelMixIn(DOMElement) {
     static get is() {return 'invoice-page'}

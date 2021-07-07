@@ -8,6 +8,9 @@ export function hash() {
 export const addEl = (tag = '') => {
     return doc.createElement(tag);
 }
+export const addElSVG = (tag) => {
+    return doc.createElementNS("http://www.w3.org/2000/svg", tag)
+}
 /**
  * @class Core
  * @description Mixin For Core And DomElement

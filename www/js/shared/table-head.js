@@ -2,7 +2,7 @@ import {DOMElement, modelMixIn} from "../core/index.js";
 
 
 /**
- * @class HTMLElement
+ *
  * @extends DOMElement
  * @extends ModelBase
  * */
