@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <invoice-page></invoice-page>
+  <script>
+   document.querySelector('invoice-page').innerHTML = atob(location.hash.split('#')[1]);
+  </script>
+<!--  <script type="module" src="index.js"></script>-->
+</body>
+</html>

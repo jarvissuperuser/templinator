@@ -13,7 +13,7 @@ export class InvoicePage extends modelMixIn(DOMElement) {
         return `
 <div class="min-80 vw-100">
     <div class="printable-page">
-        <div class="header w3"><img src="/img/accounts.png" alt="Mukuwe Moyo Engineering" class="w3-image"></div>
+        <div class="header w3"><img src="./img/accounts.png" alt="Mukuwe Moyo Engineering" class="w3-image"></div>
         <div class="body w3-container">
             <div class="w3-row">
                 <p class="w3-right"><span>{{date}}</span></p>

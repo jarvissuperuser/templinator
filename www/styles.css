@@ -17,7 +17,7 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: SmoothText,Roboto, "Helvetica Neue", sans-serif; }
 input:-internal-autofill-selected,
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -68,9 +68,9 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 /* End extract */
-html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+html,body{font-family:SmoothText,Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
 h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}.w3-serif{font-family:serif}
-h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
+h1,h2,h3,h4,h5,h6{font-family:SmoothText,"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
 hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-image{max-width:100%;height:auto}img{margin-bottom:-5px}a{color:inherit}
 .w3-table,.w3-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table}.w3-table-all{border:1px solid #ccc}
@@ -254,7 +254,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-grey,.w3-hover-border-grey:hover,.w3-border-gray,.w3-hover-border-gray:hover{border-color:#bbb!important}
 /*@font-face{font-family: "Matilda";src: url("/assets/Matilda.eot");src: url("/assets/Matilda.ttf");}*/
 /*@font-face{font-family: "PSweet";src: url("/assets/PerfectSweet.ttf");}*/
-/*@font-face{font-family: "SmoothText";src: url("/assets/Champignon.otf");}*/
+@font-face{font-family: "SmoothText";src: url("fonts/comfortaa.ttf");}
 /*.matilda{font-family: Matilda;}*/
 /*.ps-face{font-family: PSweet;}*/
 /*.smooth{font-family: SmoothText;}*/
@@ -299,7 +299,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .vh-100{min-height: 100vh}.vh-75{height: 75vh}.vh-80{height:80vh}.vh-50{height:50vh}
 .min-50{min-height:50vh}.min-60{min-height:60vh}.min-75{min-height:75vh}.min-80{min-height:80vh}
 .calc-100{min-height:calc(100vh - var(--nav-height))}
-.vw-100{width:100vw}
+.vw-100{width:100vw}.vw-90{width:90vw}
 /*img.vh-75{height: 75vh; object-position: center; object-fit: cover}*/
 .chat-box{display:flex;flex-direction:column;}
 .c-body{flex: 1 1 auto}

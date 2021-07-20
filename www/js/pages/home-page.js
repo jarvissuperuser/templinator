@@ -38,7 +38,7 @@ export class HomePage extends Core {
                 else
                     cordova.plugins.mlutil.recognizeText(res => {
                             console.log(res);
-                        }, (err)=>console.log(err, 'recog'),
+                        }, (err) => console.log(err, 'recog'),
                         this.image)
             }
         }

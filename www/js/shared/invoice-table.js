@@ -20,7 +20,7 @@ export class InvoiceTable extends modelMixIn(DOMElement){
     }
     attachAttributesNLogic() {
         this.tbody.model = this.model ?? new TableModel();
-        if (this.model.tableRows.length === 0) {
+        if (this.tbody.model.tableRows.length === 0) {
             this.tbody.model.tableRows.push(new RowModel());
             this.tbody.model.tableRows.push(new RowModel());
             this.tbody.model.tableRows.push(new RowModel());

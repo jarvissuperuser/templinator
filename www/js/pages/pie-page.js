@@ -5,8 +5,8 @@ import {addEl, addElSVG, doc, DOMElement, modelMixIn} from "../core/index.js";
  * @extends DOMElement
  * @extends ModelBase
  * */
-export class SpinningPage extends modelMixIn(DOMElement) {
-    static get is() {return 'spinning-page'}
+export class PiePage extends modelMixIn(DOMElement) {
+    static get is() {return 'pie-page'}
 
     HTMLTemplate() {
         return `

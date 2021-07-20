@@ -1,25 +1,32 @@
 {
   "emulators": {
     "auth": {
-      "port": 8510
+      "port": 8510,
+      "host": "0.0.0.0"
     },
     "functions": {
-      "port": 8530
+      "port": 8530,
+      "host": "0.0.0.0"
     },
     "firestore": {
-      "port": 8520
+      "port": 8520,
+      "host": "0.0.0.0"
     },
     "hosting": {
-      "port": 8550
+      "port": 8550,
+      "host": "0.0.0.0"
     },
     "pubsub": {
-      "port": 8540
+      "port": 8540,
+      "host": "0.0.0.0"
     },
     "storage": {
-      "port": 8560
+      "port": 8560,
+      "host": "0.0.0.0"
     },
     "ui": {
-      "enabled": false
+      "enabled": true,
+      "port": 8500 
     }
   },
   "firestore": {

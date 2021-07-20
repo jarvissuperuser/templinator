@@ -30,21 +30,67 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+<!--        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <base href="/">
+<!--        <base href="/">-->
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <title>Invoice </title>
-        <script src="js/vendor/h2p.js"></script>
     </head>
     <body class="vh-100 vw-100 w3-grid">
         <liquid-page class="w3-grid"></liquid-page>
 <!--        <spinning-page></spinning-page>-->
 <!--        <invoice-page></invoice-page>-->
+<!--        <button class="export">Export</button>-->
+<!--		<button class="w3-button w3-teal save">Save</button>-->
+<!--        <div class="sample"></div>-->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="module" src="index.js"></script>
+<script type="module">
+    const saveToDB = () =>{
+        const data = document.querySelector('invoice-page').model;
+        if (cordova && cordova.plugins) {
+			FirebasePlugin.addDocumentToFirestoreCollection(data,'test',console.log,console.trace);
+            FirebasePlugin.fetchFirestoreCollection('test',[['limit',100]],console.log,console.trace);
+        }
+    }
+    const makeInvoice = (invoiceNumber) => {
+        const element = document.querySelector('invoice-page');
+        const strData = btoa(element.innerHTML);
+        pdf.fromURL(`file:///android_asset/www/invoice.html#${strData}`,
+            {documentSize: 'A4', type: 'share', filename: `${invoiceNumber}.pdf`})
+        .then(res => {})
+
+        // const opt = {
+        //     margin:       0,
+        //     filename:     `/sdcard/${invoiceNumber}.pdf`,
+        //     image:        { type: 'png' },
+        //     html2canvas:  { scale: 1.38 },
+        //     jsPDF:        { unit: 'mm', format: 'A4', orientation: 'portrait' }
+        // };
+//
+// // New Promise-based usage:
+//
+//             html2pdf().set(opt).from(element).save()
+
+            // output('blob').then(r =>{
+            //     document.querySelector('.sample').textContent = btoa(r);
+            //     }
+            // );
+        // const frame = document.createElement("iframe");
+        // window.document.appendChild(frame);
+        // frame.contentDocument.appendChild(element)
+        // frame.document.append(element);
+        // frame.print()
+//         cordova.plugin.htmlToPDF()
+
+    }
+    // document.querySelector('button.export').onclick = () => {
+    //     makeInvoice('i202101');
+    // };
+	// document.querySelector('button.save').onclick = () => { saveToDB()};
+</script>
     </body>
 </html>

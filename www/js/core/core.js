@@ -28,7 +28,7 @@ const CoreBase = Base => class extends Base {
         this.mapper = {sum:'.summary',con:'.contracts', his:'.history'}
         this._disabled = false;
         this.authGuard();
-        this.render();
+
     }
     shadowDeclarations() {
         this.shadow = this.attachShadow({mode: "open"});
@@ -39,6 +39,7 @@ const CoreBase = Base => class extends Base {
     }
 
     connectedCallback() {
+        this.render();
         if (this.shadow){
             this.loadStyle();
         }
@@ -208,6 +209,7 @@ export class DOMElement extends CoreBase(HTMLElement){
     }
 
     connectedCallback() {
+        this.render();
         this.loadTargetElements();
         this.attachAttributesNLogic();
         this.renderedCallback();

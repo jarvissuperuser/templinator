@@ -1,11 +1,11 @@
-import {HomePage, InvoicePage, LiquidPage, SpinningPage} from "./pages/index.js";
+import {HomePage, InvoicePage, LiquidPage, PiePage} from "./pages/index.js";
 import {TableHead, InvoiceTable, TableBody, TableRow,} from "./shared/index.js"
 import {declarer, PageView} from "./core/index.js";
 
 export const components = [
     HomePage,
     InvoicePage,
-    SpinningPage,
+    PiePage,
     LiquidPage,
     PageView
 ]
