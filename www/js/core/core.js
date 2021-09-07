@@ -327,3 +327,28 @@ export class DOMElement extends CoreBase(HTMLElement){
     }
 
 }
+
+/***
+ *
+ * @mixin
+ *
+ * */
+export const inputMixin = Base => class extends Base {
+    loadInputs() {
+        this.inputs = this.getElements('app-input');
+    }
+    inputListener() {
+        if (this.inputs.length) {
+            this.inputs.forEach(input =>
+                input.addEventListener('blur', () => {
+                    this.model[input.getAttribute('name')] = input.value;
+                    const display = this.getElements(`span.${input.getAttribute('name')}`)[0];
+                    if ( display) display.innerText = input.value;
+                })
+            );
+        }
+    }
+    /***
+     *  @method {HTMLElements} getElements
+     * */
+}

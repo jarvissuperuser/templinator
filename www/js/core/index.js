@@ -6,7 +6,8 @@ export {
     addEl,
     addElSVG,
     Core,
-    DOMElement
+    DOMElement,
+    inputMixin
 } from './core.js';
 export {
     excludedPathPattern,

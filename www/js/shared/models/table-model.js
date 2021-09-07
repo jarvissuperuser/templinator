@@ -3,6 +3,7 @@ export class TableModel {
         this.date = Date.now();
         this.docNumber = 'I202100001';
         this.docType = 'Invoice'
+        this.title = '';
         this.customerName = 'Customer Name';
         this.customerContact = '+27 00 000 000';
         this.tableRows = []
