@@ -38,18 +38,15 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
         <title>Invoice </title>
     </head>
-    <body class="vh-100 vw-100 w3-grid">
-<!--        <liquid-page class="w3-grid"></liquid-page>-->
-        <data-page></data-page>
-<!--        <spinning-page></spinning-page>-->
-<!--        <invoice-page></invoice-page>-->
-<!--        <button class="export">Export</button>-->
-<!--		<button class="w3-button w3-teal save">Save</button>-->
-<!--        <div class="sample"></div>-->
+    <body class="vh-100 vw-100 w3-grid w3-black">
+        <page-view page=""></page-view>
+        <app-nav></app-nav>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="module" src="index.js"></script>
 <script type="module">
+    import {resolvePath} from "./js/core/index.js";
+
     const saveToDB = () =>{
         const data = document.querySelector('invoice-page').model;
         if (cordova && cordova.plugins) {
@@ -57,6 +54,14 @@
             FirebasePlugin.fetchFirestoreCollection('test',[['limit',100]],console.log,console.trace);
         }
     }
+    window.addEventListener('addToDatabase', (event) => {
+        console.log(event.detail.model);
+        if (window.cordova && window.cordova.plugins) {
+            FirebasePlugin.addDocumentToFirestoreCollection(event.detail.model, event.detail.dataKey,console.log,console.trace);
+        }
+    })
+
+
     const makeInvoice = (invoiceNumber) => {
         const element = document.querySelector('invoice-page');
         const strData = btoa(element.innerHTML);

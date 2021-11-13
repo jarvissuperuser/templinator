@@ -1,5 +1,6 @@
 export class TableModel {
     constructor() {
+        this.id = ''
         this.date = Date.now();
         this.docNumber = 'I202100001';
         this.docType = 'Invoice'

@@ -8,5 +8,8 @@ service cloud.firestore {
 	match /test/{t} {
 	  allow read, write: if true;
 	}
+	match /template/{tem} {
+	  allow read, write: if true;
+	}
   }
 }

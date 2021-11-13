@@ -1,0 +1,5 @@
+{
+  "root": "www",
+  "entry": "index.html",
+  "browser": "firefox"
+}

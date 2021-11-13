@@ -20,3 +20,13 @@ export const initFireBase = (firebase) => {
     }
 
 }
+export const listTemplates = () => {
+    if (cordova) {
+        return new Promise((resolve, reject) =>
+        FirebasePlugin.fetchFirestoreCollection('template',
+            [['docType', 'in', ['Invoice', 'Quote']]],
+            resolve,
+            reject));
+    }
+    return Promise.reject('no cordova Plugin');
+}

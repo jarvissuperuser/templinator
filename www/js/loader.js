@@ -1,6 +1,7 @@
-import {DataPage, HomePage, InvoicePage, LiquidPage, PiePage} from "./pages/index.js";
-import {TableHead, InvoiceTable, TableBody, TableRow, AppInput,} from "./shared/index.js"
+import {DataPage, HomePage, InvoicePage, LiquidPage, ListPage, PiePage} from "./pages/index.js";
+import {TableHead, InvoiceTable, TableBody, TableRow, AppInput, TemplateRow, AppNav,} from "./shared/index.js"
 import {declarer, PageView} from "./core/index.js";
+
 
 
 export const components = [
@@ -9,7 +10,8 @@ export const components = [
     PiePage,
     LiquidPage,
     DataPage,
-    PageView
+    PageView,
+    ListPage
 ]
 
 export const shared = [
@@ -17,7 +19,9 @@ export const shared = [
     TableHead,
     InvoiceTable,
     TableBody,
-    TableRow
+    TableRow,
+    TemplateRow,
+    AppNav
 ]
 
 export const registerPage = components => {
