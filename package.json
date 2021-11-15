@@ -17,11 +17,10 @@
         "cordova-browser": "^6.0.0",
         "cordova-pdf-generator": "^2.1.1",
         "cordova-plugin-androidx-adapter": "file:../classDriver/plugins/cordova-plugin-androidx-adapter",
-        "cordova-plugin-firebasex": "file:../plugins/cordova-plugin-firebasex",
+        "cordova-plugin-firebasex": "file:../cordova-plugin-firebasex",
         "cordova-plugin-splashscreen": "^6.0.0",
         "cordova-plugin-whitelist": "^1.3.4"
     },
-    "dependencies": {},
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},

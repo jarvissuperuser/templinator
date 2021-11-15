@@ -8,10 +8,10 @@ export class ListPage extends inputMixin(modelMixIn(DOMElement)) {
         return `
 <div class="vh-100 w3-padding w3-black">
     <h3 class="w3-center bold">Doc Templates</h3>
-     <div class="w3-grid place-center min-50 templates">
+     <div class="w3-grid place-center templates">
          
      </div>
-     <div class="w3-grid place-center min-50 documents"> 
+     <div class="w3-grid place-center documents"> 
      </div>
 </div>    
 
@@ -45,7 +45,14 @@ export class ListPage extends inputMixin(modelMixIn(DOMElement)) {
     buildTemplateList() {
         this.templateList.forEach((template) => {
             const el = addEl(TemplateRow.is);
+            el.classList.add('w3-grey');
+            el.classList.add('w3-border');
+            el.classList.add('w3-col');
+            el.classList.add('s12');
             el.model = template;
+            el.onclick = () => {
+                
+            }
             this.templates.appendChild(el);
         })
     }
