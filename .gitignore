@@ -70,3 +70,4 @@ platforms
 .data/
 plugins
 .idea
+.gradle
