@@ -56,6 +56,7 @@ export class AppInput extends Core {
         this.attributeList.push('label');
         this.attributeList.push('name');
         this.blurred = new CustomEvent('blur');
+        this.inputChanged = new CustomEvent('inp');
     }
     attachAttributesNLogic() {
         super.attachAttributesNLogic();
@@ -65,12 +66,26 @@ export class AppInput extends Core {
             const value = event.target.value;
             this._val = value;
             this.setAttribute('value', value);
+            if (!!label)
             if (!!value){
                 label.classList.add('has-content');
             }else {
                 label.classList.remove('has-content');
             }
             this.dispatchEvent(this.blurred);
+        }
+        input.oninput = event => {
+            const value = event.target.value;
+            this._val = value;
+            this.setAttribute('value', value);
+            this.dispatchEvent(this.inputChanged);
+            if (!!label)
+                if (!!value){
+                    label.classList.add('has-content');
+                }else {
+                    label.classList.remove('has-content');
+                }
+
         }
     }
     get value() {

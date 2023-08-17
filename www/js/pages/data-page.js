@@ -17,7 +17,7 @@ export class DataPage extends inputMixin(modelMixIn(DOMElement)){
         <div class="w3-padding-top">
             <select name="docType" id="selectDocType" class="w3-select w3-black" title="Select Template Type">
            
-                <option value="">Select Template Type</option>
+                <option value="" disabled selected>Select Template Type</option>
                 <option value="Invoice">Invoice</option>
                 <option value="Quote">Quote</option>
                 <option value="Receipt">Receipt</option>

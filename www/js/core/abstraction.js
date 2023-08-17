@@ -1,5 +1,5 @@
-
-
+export const win = window;
+export const doc = document;
 export const declarer = (components) => {
     for (const component of components){
         if(component.is){
@@ -46,8 +46,8 @@ export const declareMessageBus = (data) => {
     win.globalMessages = new CustomEvent('msg', {detail: data});
     win.dispatchEvent(win.globalMessages);
 }
-export const processMessages =() => {
-    doc.addEventListener('msg', ()=>{});
+export const processMessages =(callBack) => {
+    win.addEventListener('msg', callBack);
 }
 
 // function post(data, path, callback) {

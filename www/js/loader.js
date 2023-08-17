@@ -1,5 +1,28 @@
-import {DataPage, HomePage, InvoicePage, LiquidPage, ListPage, PiePage} from "./pages/index.js";
-import {TableHead, InvoiceTable, TableBody, TableRow, AppInput, TemplateRow, AppNav,} from "./shared/index.js"
+import {
+    ChatPage,
+    DataPage,
+    ExpensePage,
+    ExplorePage,
+    HomePage,
+    InvoicePage,
+    LiquidPage,
+    ListPage,
+    PiePage
+} from "./pages/index.js";
+import {
+    AddModal,
+    AlertWrapper,
+    AppAlert,
+    AppInput,
+    AppNav,
+    AppToast, DatetimeInput, ExpenseRow,
+    InvoiceTable,
+    MiniCard,
+    TableBody,
+    TableHead,
+    TableRow,
+    TemplateRow
+} from "./shared/index.js"
 import {declarer, PageView} from "./core/index.js";
 
 
@@ -10,8 +33,11 @@ export const components = [
     PiePage,
     LiquidPage,
     DataPage,
+    ChatPage,
     PageView,
-    ListPage
+    ListPage,
+    ExplorePage,
+    ExpensePage
 ]
 
 export const shared = [
@@ -21,7 +47,14 @@ export const shared = [
     TableBody,
     TableRow,
     TemplateRow,
-    AppNav
+    AppNav,
+    AlertWrapper,
+    AppAlert,
+    AppToast,
+    MiniCard,
+    ExpenseRow,
+    AddModal,
+    DatetimeInput
 ]
 
 export const registerPage = components => {

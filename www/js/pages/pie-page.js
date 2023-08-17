@@ -1,4 +1,5 @@
 import {addEl, addElSVG, doc, DOMElement, modelMixIn} from "../core/index.js";
+import {getVar, setEnv, setVar} from "../data/env.js";
 
 /**
  *
@@ -10,8 +11,9 @@ export class PiePage extends modelMixIn(DOMElement) {
 
     HTMLTemplate() {
         return `
+<h3 class="w3-center">Report</h3>
 <div class="w3-padding w3-half">
-    <svg viewBox="0 0 1000 1000" class="w3-border w3-border-blue" > 
+    <svg viewBox="0 0 1000 1000" class="" > 
        
         
         
@@ -20,6 +22,10 @@ export class PiePage extends modelMixIn(DOMElement) {
 <!--            <path stroke=""></path>-->
         </g>
     </svg>
+</div>
+<div class="w3-padding"> 
+    <input type="text" class="w3-input" placeholder="Set Ip">
+    <div class="w3-row"><span>{{ip}}</span></div>
 </div> 
 <style>
  path:hover {
@@ -32,6 +38,7 @@ export class PiePage extends modelMixIn(DOMElement) {
         `
     }
     loadTargetElements() {
+
         this.colors = [
             '#a0fe55',
             '#fea055',
@@ -46,6 +53,17 @@ export class PiePage extends modelMixIn(DOMElement) {
         this.mkValues();
         this.generatePie();
         this.generatePaths()
+        this.input = this.getElements('input')[0];
+        this.input.onchange = this.setIpOnChange;
+        setEnv();
+        if (getVar('ip')){ this.ip = getVar('ip');}
+        super.loadTargetElements();
+    }
+    setIpOnChange(ev) {
+        setVar('ip', ev.target.value);
+        if (getVar('ip')){ this.ip = getVar('ip');}
+        console.log('ip added', this.ip);
+        super.interpolate();
     }
     generatePie() {
         this.pieChart = [];
@@ -80,7 +98,7 @@ export class PiePage extends modelMixIn(DOMElement) {
     }
 
     mkValues() {
-        this.pie =  [30,30, 47, 80, 24, 56, 34,67];
+        this.pie =  this.pie?this.pie:[40,30,60,50,70];
         this.pieTotal = this.pie.reduce((a,b) => a + b);
     }
 

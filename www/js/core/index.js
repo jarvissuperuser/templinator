@@ -7,6 +7,7 @@ export {
     addElSVG,
     Core,
     DOMElement,
+    dateFormatter,
     inputMixin
 } from './core.js';
 export {
@@ -23,6 +24,9 @@ export {
     dataToEl,
     goto,
     declarer,
+    messagesTypes,
+    declareMessageBus,
+    processMessages
 } from './abstraction.js';
 export {
     uuid,

@@ -2,6 +2,10 @@
 export const doc = document;
 export const win = window;
 export const store = localStorage;
+
+export const dateFormatter = (region = 'en-za') => {
+    return Intl.DateTimeFormat(region, {dateStyle: 'short', timeStyle: 'short'});
+}
 export function hash() {
     return location.hash
 }
@@ -80,20 +84,19 @@ const CoreBase = Base => class extends Base {
         return element.innerText.indexOf(this._tokens()[0]) > -1 &&
             element.innerText.indexOf(this._tokens()[1]) > -1;
     }
-    interpolate() {
+    interpolate(safe = true) {
         try {
-            let {_tokens, hasInterpolationTokens} = this;
+            let {_tokens, hasInterpolationTokens, getInnerProp, replacePropSafe, replaceProp} = this;
             hasInterpolationTokens = hasInterpolationTokens.bind(this);
             Array.from(this.textPockets).forEach((item, i) => {
                 while (hasInterpolationTokens(item)) {
-                    const prop = item.innerText.substring(
-                        item.innerText.indexOf(_tokens()[0])
-                        + _tokens()[0].length,
-                        item.innerText.indexOf(_tokens()[1])
-                    );
+                    const prop = getInnerProp(item, _tokens);
                     if (!!this.model && !!this.model[prop]) {
-                        item.innerText = item
-                            .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[`model`][prop]);
+                        if (safe) {
+                            item.innerText = replacePropSafe(item, _tokens(), prop, this[`model`][prop]);
+                            continue;
+                        }
+                        item.innerHTML = replaceProp(item, _tokens(), prop, this[`model`][prop]);
                     }else if (!!this[prop]){
                         item.innerText = item
                             .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[prop]);
@@ -106,9 +109,21 @@ const CoreBase = Base => class extends Base {
             console.log(err);
         }
     }
-
-
-
+    getInnerProp(item, _tokens) {
+        return item.innerText.substring(
+            item.innerText.indexOf(_tokens()[0])
+            + _tokens()[0].length,
+            item.innerText.indexOf(_tokens()[1])
+        );
+    }
+    replacePropSafe(item, _tokens, propertyKey, value) {
+        return item
+            .innerText.replace(`${_tokens[0]}${propertyKey}${_tokens[1]}`, value);
+    }
+    replaceProp(item, _tokens, propertyKey, value) {
+        return item
+            .innerHTML.replace(`${_tokens[0]}${propertyKey}${_tokens[1]}`, value);
+    }
     isAttrib(attrib) {
         return this.attributeList.find(a => a === attrib) !== undefined;
     }
@@ -347,6 +362,9 @@ export const inputMixin = Base => class extends Base {
                 })
             );
         }
+    }
+    reset() {
+        this.inputs.forEach(input =>  input.value = '');
     }
     /***
      *  @method {HTMLElements} getElements
