@@ -15,7 +15,7 @@ export class AddModal extends inputMixin(modalMixIn(DOMElement)) {
                 <app-input label="Expense" name="expense"></app-input>
                 <app-input label="Amount" name="amount"></app-input>
                 <div class="w3-hide more">
-                    <app-input label="Description" name="descriptions"></app-input>
+                    <app-input label="Description" name="description"></app-input>
                     <datetime-input name="date"></datetime-input>
                     <button class="w3-button w3-blue w3-block w3-margin-top">Upload</button>
                 </div>
